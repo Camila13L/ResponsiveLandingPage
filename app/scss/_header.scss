@@ -1,6 +1,36 @@
 .header {
+    &.open{
+        .header__toggle {
+            
+                > span:first-child {
+                    transform: rotate(45deg);
+                }
+        
+                > span:nth-child(2) {
+                    opacity: 0;
+                }
+        
+                > span:last-of-type {
+                    transform: rotate(-45deg);
+                }
+            
+            }     
+        }
+        .overlay {
+            position: fixed;
+            opacity: 0;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            background-image:  linear-gradient($darkBlue, transparent);
+        }
+        
     nav {
-        padding: 1.0625rem 1.5rem;
+        position: relative;
+        padding-top: 1.0625rem;
+        padding-bottom: 1.0625rem;
+        background-color: $white;
     }
 
     &__logo {
@@ -9,7 +39,7 @@
             height: 1.375;
         }
     }
-    &__menu { //Mobile menu
+    &__toggle { //Mobile toggle
         > span {
             display: block;
             width: 26px;
@@ -21,20 +51,25 @@
                 margin-bottom: 5px;
             }
         }
-        &.open {
-            > span:first-child {
-                transform: rotate(45deg);
-            }
+    }
 
-            > span:nth-child(2) {
-                opacity: 0;
-            }
-
-            > span:last-of-type {
-                transform: rotate(-45deg);
-            }
+    &__menu {
+        position: absolute;
+        width: calc(100% - 3rem);
+        left: 50%;
+        transform: translateX(-50%);
+        background: $white;
+        padding: 1.625rem;
+        border: 5px;
+        margin-top: 1.5rem;
+        a {
+            display: block;
+            padding: 0.625rem;
+            color: $darkBlue;
+            text-align: center;
         }
     }
+
     &__links {
         a {
             position: relative;
@@ -79,13 +114,4 @@
     }
 }
 
-.overlay {
-    position: fixed;
-    opacity: 0.5;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background-color: $darkBlue;
-    background-image:  linear-gradient($darkBlue, transparent);
-}
+
