@@ -1,3 +1,43 @@
+.has-fade {
+  visibility: hidden;
+}
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fade-in 200ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.fade-out {
+  animation: fade-out 200ms ease-in-out forwards;
+}
+
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -20,13 +60,19 @@ body.noscroll {
   overflow: hidden;
 }
 
+h1, h2, h3 {
+  margin-top: 0;
+}
+
 a, a:visited, a:hover {
   text-decoration: none;
 }
 
 .container {
-  padding-left: 1.5rem;
+  padding-top: 2.25rem;
   padding-right: 1.5rem;
+  padding-bottom: 2.25rem;
+  padding-left: 1.5rem;
 }
 
 .flex {
@@ -43,13 +89,19 @@ a, a:visited, a:hover {
 }
 
 button, .button {
+  display: inline-block;
   padding: 0.6rem 2.1875rem;
   background: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
   border-radius: 50px;
   border: 0;
   color: hsl(0, 0%, 100%);
   cursor: pointer;
+  font-size: 0.875rem;
   font-weight: 400;
+  transition: opacity 300ms ease-in-out;
+}
+button:hover, .button:hover {
+  opacity: 0.75;
 }
 
 @media (max-width: 40em) {
@@ -146,51 +198,36 @@ button, .button {
 .header__links a:hover::before {
   opacity: 1;
 }
-.header__cta {
-  font-size: 0.875rem;
-  color: hsl(0, 0%, 100%);
-  transition: opacity 300ms ease-in-out;
-}
-.header__cta:hover {
-  opacity: 0.75;
-}
 
-.has-fade {
-  visibility: hidden;
+.hero__image {
+  position: relative;
+  background-image: url("/images/bg-intro-mobile.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 17.5rem;
 }
-
-@keyframes fade-in {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-  1% {
-    visibility: hidden;
-    opacity: 0;
-  }
-  to {
-    visibility: visible;
-    opacity: 1;
-  }
+.hero__image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/image-mockups.png");
+  background-size: 94%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
-.fade-in {
-  animation: fade-in 200ms ease-in-out forwards;
+.hero__text {
+  text-align: center;
 }
-
-@keyframes fade-out {
-  from {
-    visibility: visible;
-    opacity: 1;
-  }
-  99% {
-    visibility: visible;
-    opacity: 0;
-  }
-  to {
-    visibility: hidden;
-    opacity: 0;
-  }
+.hero__text h1 {
+  font-weight: 300;
+  font-size: 2.31rem;
+  line-height: 1.15;
+  color: hsl(233, 26%, 24%);
+  margin-bottom: 1.5rem;
 }
-.fade-out {
-  animation: fade-out 200ms ease-in-out forwards;
+.hero__text p {
+  line-height: 1.5;
+  margin-bottom: 2.25rem;
 }/*# sourceMappingURL=style.css.map */
